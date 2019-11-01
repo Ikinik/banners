@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="ad.size" content="width=300,height=600">
+        <title></title>
+        <style type="text/css">
+          @font-face{
+              font-family:"FS Lola Bold";
+              src:url("fslola-bold.eot");
+              src:local("☺"),url("fslola-bold.eot") format("embedded-opentype"),url("fslola-bold.woff") format("woff"),url("fslola-bold.ttf") format("truetype"),url("fslola-bold.svg#fslola-bold") format("svg");
+              font-style:normal;
+              font-weight:normal
+          }
+
+          @font-face{
+              font-family:"FS Lola Medium";
+              src:url("fslola-medium.eot");
+              src:local("☺"),url("fslola-medium.eot") format("embedded-opentype"),url("fslola-medium.woff") format("woff"),url("fslola-medium.ttf") format("truetype"),url("fslola-medium.svg#fslola-medium") format("svg");
+              font-style:normal;
+              font-weight:normal
+          }
+
+          @font-face{
+              font-family:"FS Lola";
+              src:url("fslola-regular.eot");
+              src:local("☺"),url("fslola-regular.eot") format("embedded-opentype"),url("fslola-regular.woff") format("woff"),url("fslola-regular.ttf") format("truetype"),url("fslola-regular.svg#fslola-regular") format("svg");
+              font-style:normal;
+              font-weight:normal
+          }
+
+          @font-face{
+              font-family:"FS Lola Light";
+              src:url("fslola-light.eot");
+              src:local("☺"),url("fslola-light.eot") format("embedded-opentype"),url("fslola-light.woff") format("woff"),url("fslola-light.ttf") format("truetype"),url("fslola-light.svg#fslola-light") format("svg");
+              font-style:normal;
+              font-weight:normal
+          }
+
+          a {text-decoration: none; color: #525355}
+          body {margin: 0px; padding: 0px; color: #525355; font-family: 'FS Lola Medium';}
+
+          .red {color: #E11E0A}
+
+          div#bs {width: 300px; height: 600px; overflow: hidden; border: 1px solid #4a4f52; background-color: transparent !important}
+
+          h1 {font-size: 32px}
+          h1 span {font-size: 43px}
+
+          div#stamp {text-align: center; margin-top: 30px}
+          div#foot {text-align: center; margin-top: 25px}
+
+          img#pig {margin-left: 15px}
+
+
+          /* action button styling */
+          div.button {display: table; font-family: "FS Lola Bold"; padding: 6px 12px 6px 12px; margin: 0px auto; font-size: 20px; background-color: #DD2412; color: white; text-align: center; border-radius: 10px}
+          div.button {margin-top: 10px}
+          div.button table {border: none; border-collapse: collapse}
+          div.button table td {border: none}
+          div.button span {margin-right: 0px}
+          div.button img.arrow {display: block; margin-left: 7px; margin-top: 2px}
+
+          /* button blinking */
+          @keyframes blink {
+            0% {background-color: rgb(228, 30, 10)}
+            50% {background-color: #d7d7d8}
+            100% {background-color: rgb(228, 30, 10)}
+          }
+
+          /* button blinking effect */
+          div.button {
+            animation-delay: 2.6s;
+            animation-name: blink;
+            animation-duration: 1.6s;
+            animation-iteration-count: 15;
+            animation-direction: normal;
+          }
+
+          @keyframes fadein {
+            from {opacity: 0}
+            to {opacity: 1}
+          }
+
+          div#stamp {
+            opacity: 0;
+            animation-fill-mode: forwards;
+            animation-name: fadein;
+            animation-duration: 1.6s;
+            animation-iteration-count: 1;
+            animation-delay: 1s;
+            transition-timing-function: ease-in;
+          }
+
+
+
+        </style>
+        <script type="text/javascript">
+
+          function getQueryParam(paramName) {
+              var qs = location.search;
+              qs = qs.substr(qs.indexOf("?") + 1);
+              allParams = qs.split("&");
+
+              for (var i = 0; i < allParams.length; i++) {
+                  keyVal = allParams[i].split("=");
+                  if (keyVal[0] == paramName) {
+                      return unescape(keyVal[1]);
+                  }
+              }
+              return null;
+          }
+
+          document.addEventListener("DOMContentLoaded", function() {
+
+              var redir = getQueryParam('redir');
+              var target = getQueryParam('bbtarget');
+
+              clickTag = redir;
+              var embedCanvas = new EmbedCanvas();
+              embedCanvas.init(document.getElementById("bs"), bannerJson, bannerConfig);
+
+              var aredir = document.getElementsByTagName('a');
+              for (var i = 0; i < aredir.length; i++) {
+                  redir = redir;
+                  aredir[i].href = redir;
+                  aredir[i].target = target;
+              }
+          });
+
+        </script>
+    </head>
+    <body>
+      <a href="#" target="_top">
+        <div id="bs">
+          <h1 style="text-align: center">Zapoj se do soutěže<br><span class="red">o 1 000 000 kč</span></h1>
+          <div id="stamp">
+            <img src="stamp.jpg" alt="rozdáváme milion měsíčně">
+          </div>
+          <div id="foot">
+            <img id="pig" src="prasatko.png" width="170" alt="mBank">
+            <div class="button">
+              <table>
+                <tr>
+                  <td><span>Chci mKonto</span></td>
+                  <td><img class="arrow" src="arrow.png" height="22"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </a>
+    </body>
+</html>
